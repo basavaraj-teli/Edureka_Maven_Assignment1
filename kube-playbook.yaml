@@ -1,0 +1,9 @@
+--- # Create a deployment and service for tomcat web server
+- hosts: all
+  gather_facts: true
+  become: true
+  tasks:
+    - name: Create deployment
+	  command: kubectl create -f tomcat_deploy.yaml
+    - name: Create service
+	  command: kubectl create -f tomcat_service.yaml

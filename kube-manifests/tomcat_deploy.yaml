@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tomcat_deploy
+  name: tomcat-deploy
   labels:
     tier: frontend
 spec:
@@ -11,10 +11,12 @@ spec:
       tier: frontend
   template:
     metadata:
-      name: tomcat_pod
+      name: tomcat-pod
       labels:
         tier: frontend
     spec:
       containers:
-        name: tomcat_container
-        image: basavarjteli/my_tomcat:v1
+        - name: tomcat-container
+          image: basavarjteli/my_tomcat:v1
+          ports:
+            - containerPort: 8080

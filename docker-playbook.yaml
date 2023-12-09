@@ -1,11 +1,10 @@
 --- # build image and push image to dockerhub
-- hosts: all
+- hosts: Kube
   gather_facts: true
-  become: true
   tasks:
     - name: build docker image
-	  command: docker build -t my_tomcat .
-	- name: tag image
-	  command: docker tag my_tomcat basavarjteli/my_tomcat:v1
-	- name: push image
-	  command: docker push basavarjteli/my_tomcat:v1
+      command: docker build -t my_tomcat .
+    - name: tag image
+      command: docker tag my_tomcat basavarjteli/my_tomcat:v1
+    - name: push image
+      command: docker push basavarjteli/my_tomcat:v1
